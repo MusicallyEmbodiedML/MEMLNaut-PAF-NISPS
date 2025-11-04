@@ -145,12 +145,13 @@ void setup() {
               midi_interf->sendNoteOff(last_note_number, 0);
               is_playing_note = false;
           }
-          int noteVel = static_cast<uint8_t>(powf(y * (1.f/127.f), 0.5f) * 127.f);
+          int noteVel = static_cast<uint8_t>(powf(y, 0.5f) * 127.f);
           uint8_t midimsg[2] = {static_cast<uint8_t>(x * 127.f), noteVel};
           queue_try_add(&audio_app->qMIDINoteOn, &midimsg);
           midi_interf->sendNoteOn(midimsg[0], midimsg[1]);
           last_note_number = midimsg[0];
           is_playing_note = true; // Set flag to indicate a note is playing
+          // Serial.printf("sending %d %d\n",midimsg[0], midimsg[1]);
       }
   });
   noteTrigView->SetOnTouchReleaseCallback([](float x, float y) {

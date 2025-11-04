@@ -42,7 +42,7 @@
     \
     dlfb = params[19] * 0.95f; \
     \
-    env.setup(params[30] * 1.f,params[20] * params[20] * 100.f,0.01 + (params[31] * 0.1f), params[32] * params[32] * 300.f, sampleRatef ); \
+    env.setup(0.2f + (params[30] * 1.f),0.5f + params[20] * params[20] * 100.f,0.01 + (params[31] * 0.1f),1.f+ params[32] * params[32] * 300.f, sampleRatef ); \
     \
     sineShapeGain = params[26]; \
     sineShapeASym = params[27]* 0.5f; \
